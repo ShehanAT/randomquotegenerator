@@ -1,0 +1,96 @@
+body {
+  /*text-align: center;*/
+  background-color: #36b55c;
+  color: white;
+  font-family: 'Playfair Display', serif;
+}
+#quote-box {
+  position: absolute;
+  top: 20%;
+  left: 10%;
+  right: 10%;
+  width: 80%;
+  line-height: .5;
+}
+.quote {
+  font-size: 4rem;
+  font-weight: 400;
+  line-height: 1.1;
+  position: relative;
+  margin: 0;
+  } 
+.quote:before, .quote:after {
+  font-size: 6rem;
+  line-height: 2.5rem;
+  position: absolute;
+}
+.quote:before {
+  content: "“";
+  top: .25em;
+  left: -.5em;
+}
+.quote:after {
+  content: "”";
+  bottom: -.1em;
+  margin-left: .1em;
+  position: absolute;
+}
+.source {
+  font-size: 1.25rem;;
+  letter-spacing: 0.05em;
+  line-height: 1.1;
+  text-align: right;
+  margin-right: 4em;
+}
+.source:before {
+  content: "—";
+}
+.citation {
+  font-style: italic;
+}
+.citation:before {
+  content: ", ";
+  font-style: normal;
+}
+.year:before {
+  content: ", ";
+  font-style: normal;
+}
+
+
+
+@media (max-width: 420px) {
+  .quote {
+    font-size: 2.5rem;
+  }
+  .quote:before, .quote:after {
+    font-size: 3rem;
+  }
+  .source {
+    font-size: 1rem;
+  }
+}
+#quotebtn{
+  position: absolute;
+  transition: .5s ease;
+  top: 50%;
+  left: 50%;
+  padding: 15px 25px;
+  font-size: 24px;
+  text-align: center;
+  cursor: pointer;
+  outline: none;
+  color: #fff;
+  background-color: #4CAF50;
+  border: none;
+  border-radius: 15px;
+  box-shadow: 0 9px #999;
+}
+#quotebtn:hover{
+  background-color:#3e8e41;
+}
+#quotebtn:active{
+  background-color: #3e8e41;
+  box-shadow: 0 5px #666;
+  transform: translateY(4px);
+}
