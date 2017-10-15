@@ -1,5 +1,6 @@
 
-const quotes = [//list of quotes
+const quotes = [//list of quote objects with source, citation, year and tag properties
+    //four tag types: life, motivational, funny, and love
     {
         "quote":"Two roads diverged in a yellow wood, and I took the one less traveled by, And that has made all the difference",
         "source":"Robert Frost",
@@ -54,14 +55,14 @@ const quotes = [//list of quotes
     }
 
 ];
-const colors = ["#0431B4","#04B4AE","#01DF74","#FFBF00","#FF0000","#DF01A5","#848484","#151515"];
-var checkArr = [];
+const colors = ["#0431B4","#04B4AE","#01DF74","#FFBF00","#FF0000","#DF01A5","#848484","#151515"];//background colors for the page
+var checkArr = [];//array to check if all quotes have been displayed at least once before reseting
 
-function getRandomQuote(){//generates random quotes
+function getRandomQuote(){//generates random quotes using Math.random()
     var random = Math.floor(Math.random() * quotes.length);
     return quotes[random];
 }
-function changeBackground(){//changes background color
+function changeBackground(){//changes background color using Math.random()
     var random = Math.floor(Math.random() * colors.length)
     return colors[random];
 }
@@ -78,7 +79,7 @@ function checkRepeat(quoteObject){//checks if each quote has been displayed once
         return false;
     }
 }
-function printQuote(){
+function printQuote(){//prints out a random quote and changes the background color
     var quote = getRandomQuote();
     if (checkRepeat(quote) == true){
         var backColor = changeBackground();
@@ -99,11 +100,11 @@ function printQuote(){
         document.querySelector('body').style.backgroundColor = backColor;
     }
     else{
-        printQuote();
+        printQuote();//recurses the function if the generated quote has been display once in a span of 8 quotes
     }
     
 }
 
-setInterval(printQuote, 30000);
+setInterval(printQuote, 30000);//timer that prints a new quote every 30 seconds
 
 
