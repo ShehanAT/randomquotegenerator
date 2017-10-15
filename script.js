@@ -1,5 +1,5 @@
 
-const quotes = [
+const quotes = [//list of quotes
     {
         "quote":"Two roads diverged in a yellow wood, and I took the one less traveled by, And that has made all the difference",
         "source":"Robert Frost",
@@ -54,18 +54,18 @@ const quotes = [
     }
 
 ];
-const colors = ["#0431B4","#04B4AE","#01DF74","#FFBF00","#FF0000","#DF01A5","#848484","#151515"];
-var checkrepeat = []
+const colors = ["#0431B4","#04B4AE","#01DF74","#FFBF00","#FF0000","#DF01A5","#848484","#151515"];//background colors to choose from
+var checkrepeat = []//array to check for repeating quotes
 
-function getRandomQuote(){
+function getRandomQuote(){//generates random quotes
     var random = Math.floor(Math.random() * quotes.length);
     return quotes[random];
 }
-function changeBackground(){
+function changeBackground(){//changes background color
     var random = Math.floor(Math.random() * colors.length)
     return colors[random];
 }
-function printQuote(){
+function printQuote(){//prints random quotes and changes the background color with each button click.
     var quote = getRandomQuote();
     if (checkrepeat.length === 8){
         checkrepeat = [];
