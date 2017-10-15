@@ -55,7 +55,7 @@ const quotes = [
 
 ];
 const colors = ["#0431B4","#04B4AE","#01DF74","#FFBF00","#FF0000","#DF01A5","#848484","#151515"];
-var checkrepeat = []
+var checkArr = [];
 
 function getRandomQuote(){
     var random = Math.floor(Math.random() * quotes.length);
@@ -65,13 +65,22 @@ function changeBackground(){
     var random = Math.floor(Math.random() * colors.length)
     return colors[random];
 }
+function checkRepeat(quoteObject){//checks if each quote has been displayed once before reseting
+    if (checkArr.length === 8){//reseting the array if all 8 quotes have been displayed
+        console.log(checkArr);
+        checkArr = [];
+    }
+    if (checkArr.indexOf(quoteObject.quote) === -1){//checking  for repeats in the array
+        checkArr.push(quoteObject.quote);
+        return true;
+    }
+    else{
+        return false;
+    }
+}
 function printQuote(){
     var quote = getRandomQuote();
-    if (checkrepeat.length === 8){
-        checkrepeat = [];
-    }
-    if (checkrepeat.indexOf(quote.quote) === -1){
-        checkrepeat.push(quote.quote);
+    if (checkRepeat(quote) == true){
         var backColor = changeBackground();
         var htmlString = "<p class='quote'>";
         htmlString += quote.quote;
